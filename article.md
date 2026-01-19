@@ -60,7 +60,7 @@ Artificial Intelligence, Ottoman Census Registers, Migratory Movements, Geolocat
 
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""} tags=["cover"]
+```python editable=true slideshow={"slide_type": ""} jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["cover"]
 from IPython.display import Image, display
 
 display(Image("./media/Cover_Defter.png"))
@@ -205,7 +205,7 @@ Our workflow is also conceptually replicable with open-source LLMs, requiring on
 
 Once we completed the workflow, the resulting structured data enabled us to perform statistical analyses of mobility patterns and visualize individual and collective movements using modern platforms. We performed exploratory data analysis using Pandas and Matplotlib, two widely used Python tools for managing and visualizing tabular data, and then mapped the results with Kepler.gl, an online geospatial visualization platform.
 
-```python tags=["figure-uml-*"]
+```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-uml-*"]
 from IPython.display import Image, display
 
 display(Image("./media/Method.png"))
@@ -222,7 +222,7 @@ Our study relies on two sets of defters documenting the demographic composition 
 
 The two sets of defters analyzed in this study were already transliterated and digitized into spreadsheets, and correspond to entries from Fener and Tatavla, two historically Greek Orthodox neighborhoods with distinct socio-spatial profiles. Fener, located along the Golden Horn, was home to the Ecumenical Patriarchate and several elite ecclesiastical institutions. Tatavla (modern-day Kurtuluş), in contrast, was a densely populated working-class district with a strong artisanal presence. From a larger dataset containing information on physical characteristics, household composition, occupations, places of origin, and migration histories, we selected only the place-of-origin and movement fields, as these were central to the goals of our study. After removing records lacking movement information, the dataset used for LLM processing consisted of 2,511 entries from Tatavla and 417 from Fener.
 
-```python tags=["table-dataset-*"]
+```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-dataset-*"]
 import pandas as pd
 
 dataset_path = "./datasets/datasets.xlsx"
@@ -1240,7 +1240,7 @@ Tatavla | Context | 2510 | 93.19% | 6.81%
 
 <!-- #endregion -->
 
-```python tags=["table-evaluation-formatting-*"]
+```python jdh={"module": "object", "object": {"source": ["Results of the Data Extraction And Formatting step"]}} tags=["table-evaluation-formatting-*"]
 import pandas as pd
 
 # ==============================
@@ -1330,7 +1330,7 @@ Tatavla | LLM | 229 | 81.66% | 18.34%
 
 <!-- #endregion -->
 
-```python tags=["table-geopy-llm-df-*"]
+```python  jdh={"module": "object", "object": {"source": ["Results of the Geolocation step"]}} tags=["table-geopy-llm-df-*"]
 file_with_context = r"./datasets/validation_DH_Paper_context.xlsx"
 file_without_context = r"./datasets/validation_DH_Paper_no_context.xlsx"
 
@@ -1398,7 +1398,7 @@ Moreover, our searches for reliable public documentation confirmed that detailed
 | Full Date   | 2436                 | 4.93%      | 95.07%  |
 
 
-```python tags=["table-dd-mm-yy-*"]
+```python jdh={"module": "object", "object": {"source": ["Results of the date conversion step"]}} tags=["table-dd-mm-yy-*"]
 import pandas as pd
 import numpy as np
 
@@ -1553,7 +1553,7 @@ for col in cols_to_normalize:
 movement_cols = location_cols[1:]
 ```
 
-```python tags=["table-movement-person-*"]
+```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-movement-person-*"]
 # ============================================
 # 1) Number of moves per person
 # ============================================
@@ -1568,7 +1568,7 @@ display(df_moves["n_moves"].describe().to_frame(name="Movement Count Stats"))
 
 ```
 
-```python tags=["figure-movment-person-*"]
+```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-movment-person-*"]
 # ---- Histogram ----
 value_counts = df_moves["n_moves"].value_counts().sort_index()
 steps = value_counts.index.values
@@ -1597,7 +1597,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-```python tags=["table-origin-*"]
+```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-origin-*"]
 # ============================================
 # 1b) Place of origin distribution (Top 5)
 # ============================================
@@ -1619,7 +1619,7 @@ display(df_origin.head(5))
 
 ```
 
-```python tags=["figure-origin-*"]
+```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-origin-*"]
 top_origin = df_origin.head(5)
 
 plt.figure(figsize=(12, 6), dpi=120)
@@ -1652,7 +1652,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-```python tags=["table-destination-*"]
+```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-destination-*"]
 # ============================================
 # 2) destination frequencies
 # ============================================
@@ -1677,7 +1677,7 @@ display(df_step_freq.sort_values(["Step", "Count"], ascending=[True, False]).hea
 
 ```
 
-```python tags=["figure-destination-*"]
+```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-destination-*"]
 if "location_2" in movement_cols:
     top_loc2 = (
         df_step_freq[df_step_freq["Step"] == "location_2"]
@@ -1720,7 +1720,7 @@ if "location_2" in movement_cols:
 
 **Figure 6.** Visualization of movements Tatavla
 
-```python tags=["figure-tatavla-move-*"]
+```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-tatavla-move-*"]
 from IPython.display import Image, display
 
 display(Image("./media/tatavla_analysis4.png"))
@@ -1796,7 +1796,7 @@ movement_cols = location_cols[1:]
 
 ```
 
-```python tags=["table-move-person-bis-*"]
+```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-move-person-bis-*"]
 # ============================================
 # 1) Number of moves per person
 # ============================================
@@ -1808,7 +1808,7 @@ display(df_moves["n_moves"].describe().to_frame(name="Movement Count Stats"))
 
 ```
 
-```python tags=["figure-move-person-bis-*"]
+```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} ["figure-move-person-bis-*"]
 # ---- Histogram ----
 value_counts = df_moves["n_moves"].value_counts().sort_index()
 steps = value_counts.index.values
@@ -1837,7 +1837,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-```python tags=["table-origin-bis-*"]
+```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-origin-bis-*"]
 
 # ============================================
 # 1b) Place of origin distribution (Top 5)
@@ -1857,7 +1857,7 @@ display(df_origin.head(5))
 
 ```
 
-```python tags=["figure-origin-bis-*"]
+```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-origin-bis-*"]
 top_origin = df_origin.head(5)
 
 plt.figure(figsize=(12, 6), dpi=120)
@@ -1890,7 +1890,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-```python tags=["table-destination-bis-*"]
+```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-destination-bis-*"]
 # ============================================
 # 2) destination frequencies
 # ============================================
@@ -1914,7 +1914,7 @@ display(df_step_freq.sort_values(["Step", "Count"], ascending=[True, False]).hea
 
 ```
 
-```python tags=["figure-destination-bis-*"]
+```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-destination-bis-*"]
 
 if "location_2" in movement_cols:
     top_loc2 = (
@@ -1958,7 +1958,7 @@ if "location_2" in movement_cols:
 
 ```
 
-```python tags=["figure-fener-bis-*"]
+```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-fener-bis-*"]
 from IPython.display import Image, display
 
 display(Image("./media/fener_analysis4.png"))
