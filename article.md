@@ -213,7 +213,7 @@ Our study relies on two sets of defters documenting the demographic composition 
 
 The two sets of defters analyzed in this study were already transliterated and digitized into spreadsheets, and correspond to entries from Fener and Tatavla, two historically Greek Orthodox neighborhoods with distinct socio-spatial profiles. Fener, located along the Golden Horn, was home to the Ecumenical Patriarchate and several elite ecclesiastical institutions. Tatavla (modern-day Kurtuluş), in contrast, was a densely populated working-class district with a strong artisanal presence. From a larger dataset containing information on physical characteristics, household composition, occupations, places of origin, and migration histories, we selected only the place-of-origin and movement fields, as these were central to the goals of our study. After removing records lacking movement information, the dataset used for LLM processing consisted of 2,511 entries from Tatavla and 417 from Fener.
 
-```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-dataset-*"]
+```python jdh={"module": "object", "object": {"source": ["Dataset"]}} tags=["table-dataset-*"]
 import pandas as pd
 
 dataset_path = "./datasets/datasets.xlsx"
@@ -1505,7 +1505,7 @@ for col in cols_to_normalize:
 movement_cols = location_cols[1:]
 ```
 
-```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-movement-person-*"]
+```python jdh={"module": "object", "object": {"source": ["Movement Count Statistics per Person (excluding starting point)"]}} tags=["table-movement-person-*"]
 # ============================================
 # 1) Number of moves per person
 # ============================================
@@ -1520,7 +1520,7 @@ display(df_moves["n_moves"].describe().to_frame(name="Movement Count Stats"))
 
 ```
 
-```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-movment-person-*"]
+```python jdh={"module": "object", "object": {"source": ["Distribution of Movements per Individual"]}} tags=["figure-movment-person-*"]
 # ---- Histogram ----
 value_counts = df_moves["n_moves"].value_counts().sort_index()
 steps = value_counts.index.values
@@ -1549,7 +1549,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-origin-*"]
+```python jdh={"module": "object", "object": {"source": ["Top 5 Places of Origin"]}} tags=["table-origin-*"]
 # ============================================
 # 1b) Place of origin distribution (Top 5)
 # ============================================
@@ -1571,7 +1571,7 @@ display(df_origin.head(5))
 
 ```
 
-```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-origin-*"]
+```python jdh={"module": "object", "object": {"source": ["Top 5 Places of Origin"]}} tags=["figure-origin-*"]
 top_origin = df_origin.head(5)
 
 plt.figure(figsize=(12, 6), dpi=120)
@@ -1604,7 +1604,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-destination-*"]
+```python jdh={"module": "object", "object": {"source": ["Top Destinations per Step"]}} tags=["table-destination-*"]
 # ============================================
 # 2) destination frequencies
 # ============================================
@@ -1629,7 +1629,7 @@ display(df_step_freq.sort_values(["Step", "Count"], ascending=[True, False]).hea
 
 ```
 
-```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-destination-*"]
+```python jdh={"module": "object", "object": {"source": ["Top 10 Destinations in First Move"]}} tags=["figure-destination-*"]
 if "location_2" in movement_cols:
     top_loc2 = (
         df_step_freq[df_step_freq["Step"] == "location_2"]
@@ -1746,7 +1746,7 @@ movement_cols = location_cols[1:]
 
 ```
 
-```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-move-person-bis-*"]
+```python jdh={"module": "object", "object": {"source": ["Movement Count Statistics per Person (excluding starting point)"]}} tags=["table-move-person-bis-*"]
 # ============================================
 # 1) Number of moves per person
 # ============================================
@@ -1758,7 +1758,7 @@ display(df_moves["n_moves"].describe().to_frame(name="Movement Count Stats"))
 
 ```
 
-```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-move-person-bis-*"]
+```python jdh={"module": "object", "object": {"source": ["Distribution of Movements per Individual"]}} tags=["figure-move-person-bis-*"]
 # ---- Histogram ----
 value_counts = df_moves["n_moves"].value_counts().sort_index()
 steps = value_counts.index.values
@@ -1787,7 +1787,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-origin-bis-*"]
+```python jdh={"module": "object", "object": {"source": ["Top 5 Places of Origin"]}} tags=["table-origin-bis-*"]
 
 # ============================================
 # 1b) Place of origin distribution (Top 5)
@@ -1807,7 +1807,7 @@ display(df_origin.head(5))
 
 ```
 
-```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-origin-bis-*"]
+```python jdh={"module": "object", "object": {"source": ["Top 5 Places of Origin"]}} tags=["figure-origin-bis-*"]
 top_origin = df_origin.head(5)
 
 plt.figure(figsize=(12, 6), dpi=120)
@@ -1840,7 +1840,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["table-destination-bis-*"]
+```python jdh={"module": "object", "object": {"source": ["Top Destinations per Step"]}} tags=["table-destination-bis-*"]
 # ============================================
 # 2) destination frequencies
 # ============================================
@@ -1864,7 +1864,7 @@ display(df_step_freq.sort_values(["Step", "Count"], ascending=[True, False]).hea
 
 ```
 
-```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-destination-bis-*"]
+```python jdh={"module": "object", "object": {"source": ["Top 10 Destinations in First Move"]}} tags=["figure-destination-bis-*"]
 
 if "location_2" in movement_cols:
     top_loc2 = (
