@@ -1758,7 +1758,7 @@ display(df_moves["n_moves"].describe().to_frame(name="Movement Count Stats"))
 
 ```
 
-```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} ["figure-move-person-bis-*"]
+```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-move-person-bis-*"]
 # ---- Histogram ----
 value_counts = df_moves["n_moves"].value_counts().sort_index()
 steps = value_counts.index.values
