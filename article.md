@@ -61,16 +61,10 @@ Artificial Intelligence, Ottoman Census Registers, Migratory Movements, Geolocat
 
 <!-- #endregion -->
 
-```python editable=true slideshow={"slide_type": ""} jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["cover"]
+```python editable=true jdh={"module": "object", "object": {"source": ["Sample page from a nineteenth-century Ottoman census register, representing the archival source from which the data used in our study were derived. The handwritten layout and marginal annotations illustrate the complexity of transliteration and digitization of these resources."]}} slideshow={"slide_type": ""} tags=["cover"]
 from IPython.display import Image, display
-
 display(Image("./media/Cover_Defter.png"))
-
 ```
-
-<!-- #region editable=true slideshow={"slide_type": ""} -->
-**Figure 1.** Sample page from a nineteenth-century Ottoman census register, representing the archival source from which the data used in our study were derived. The handwritten layout and marginal annotations illustrate the complexity of transliteration and digitization of these resources.
-<!-- #endregion -->
 
 <!-- #region editable=true slideshow={"slide_type": ""} -->
 ## Introduction
@@ -206,14 +200,10 @@ Our workflow is also conceptually replicable with open-source LLMs, requiring on
 
 Once we completed the workflow, the resulting structured data enabled us to perform statistical analyses of mobility patterns and visualize individual and collective movements using modern platforms. We performed exploratory data analysis using Pandas and Matplotlib, two widely used Python tools for managing and visualizing tabular data, and then mapped the results with Kepler.gl, an online geospatial visualization platform.
 
-```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-uml-*"]
+```python jdh={"module": "object", "object": {"source": ["Workflow for data extraction, geolocation, and validation of historical migration records from defters. The process involves two main stages: (1) Data Formatting, Extraction, Geolocation, and Date Conversion using prompt-based LLM processing, and (2) validation through human input and quantitative evaluation metrics (accuracy, recall, and F1 score)"]}} tags=["figure-uml-*"]
 from IPython.display import Image, display
-
 display(Image("./media/Method.png"))
 ```
-
-**Figure 2.** Workflow for data extraction, geolocation, and validation of historical migration records from defters. The process involves two main stages: (1) Data Formatting, Extraction, Geolocation, and Date Conversion using prompt-based LLM processing, and (2) validation through human input and quantitative evaluation metrics (accuracy, recall, and F1 score).
-
 
 ### Dataset
 
@@ -1228,19 +1218,6 @@ The contextual scenario was not without limitations. Approximately 6–7% of the
 
 Overall, the results for data extraction and formatting show that the LLM can achieve high accuracy in structured extraction and standardization when provided with appropriate contextual constraints. However, persistent challenges remain in historical text normalization and transliteration handling. These results also functioned as a filtering stage that reduced the expert’s cognitive workload in the subsequent geolocation and date-conversion validation steps. Since extraction and formatting were not reliable in the no-context condition, only the outputs from the contextual configuration were submitted for expert evaluation.
 
-
-**Table 1.** Results of the Data Extraction And Formatting step
-
-<!-- #region tags=["table-data-extraction-*"] -->
-City | Prompting | Total Rows Processed | Accuracy % | Error %
----|---:|---:|---:|---:
-Fener | No Context | 416 | 32.93% | 67.07%
-Fener | Context | 417 | 96.88% | 3.12%
-Tatavla | No Context | 2509 | 42.80% | 57.20%
-Tatavla | Context | 2510 | 93.19% | 6.81%
-
-<!-- #endregion -->
-
 ```python jdh={"module": "object", "object": {"source": ["Results of the Data Extraction And Formatting step"]}} tags=["table-evaluation-formatting-*"]
 import pandas as pd
 
@@ -1317,20 +1294,6 @@ We observed that when the LLM retained the Ottoman Turkish -li suffix (e.g., Asi
 
 The results of this section also highlight that the LLM still has limitations in geolocating historical places, suggesting the need for complementary strategies such as retrieval-augmented generation (RAG) or fine-tuning to improve performance.
 
-
-**Table 2.** Results of the Geolocation step
-
-<!-- #region tags=["table-geopy-llm-*"] -->
-City | Method | Total Locations | Accuracy % | Error %
----|---:|---:|---:|---:
-Fener | Geopy | 146 | 61.64% | 38.36%
-Fener | LLM | 146 | 89.73% | 10.27%
-Tatavla | Geopy | 229 | 48.04% | 51.96%
-Tatavla | LLM | 229 | 81.66% | 18.34%
-
-
-<!-- #endregion -->
-
 ```python jdh={"module": "object", "object": {"source": ["Results of the Geolocation step"]}} tags=["table-geopy-llm-df-*"]
 file_with_context = r"./datasets/validation_DH_Paper_context.xlsx"
 file_without_context = r"./datasets/validation_DH_Paper_no_context.xlsx"
@@ -1386,18 +1349,6 @@ The evaluation of Hijri→Gregorian date conversion assessed whether the model c
 
 
 Moreover, our searches for reliable public documentation confirmed that detailed linguistic and computational resources for translating full Ottoman-Hijri dates into the Gregorian calendar are limited. Since GPT-4o was used without external tools or lookup systems, its performance likely reflects gaps in the availability and representation of this specialized knowledge in its training data. These findings indicate that enhancing date conversion accuracy may require hybrid approaches incorporating curated conversion tables, domain-specific retrieval, or the use of AI agents.
-
-
-**Table 3.** Results of the date conversion step
-
-
-| Component   | Evaluated Components | Accuracy % | Error % |
-|-------------|----------------------:|-----------:|--------:|
-| Day         | 2436                 | 6.77%      | 93.23%  |
-| Month       | 2448                 | 56.29%     | 43.71%  |
-| Year        | 2453                 | 97.80%     | 2.20%   |
-| Full Date   | 2436                 | 4.93%      | 95.07%  |
-
 
 ```python jdh={"module": "object", "object": {"source": ["Results of the date conversion step"]}} tags=["table-dd-mm-yy-*"]
 import pandas as pd
@@ -1583,7 +1534,7 @@ bars = plt.bar(steps, counts, width=0.6, edgecolor='black', linewidth=1.2)
 plt.grid(axis='y', linestyle='--', alpha=0.4)
 plt.xlabel("Number of Movements", fontsize=12)
 plt.ylabel("Frequency of Defters", fontsize=12)
-plt.title("Figure 3. Distribution of Movements per Individual", fontsize=16, fontweight='bold')
+plt.title("Distribution of Movements per Individual", fontsize=16, fontweight='bold')
 
 for bar, count in zip(bars, counts):
     height = bar.get_height()
@@ -1633,7 +1584,7 @@ bars = plt.bar(top_origin["Place of origin"].astype(str),
 plt.grid(axis='y', linestyle='--', alpha=0.4)
 plt.xlabel("Place of origin", fontsize=12)
 plt.ylabel("Number of defters", fontsize=12)
-plt.title("Figure 5. Top 5 Places of Origin", fontsize=16, fontweight='bold')
+plt.title("Top 5 Places of Origin", fontsize=16, fontweight='bold')
 
 plt.xticks(rotation=45, ha="right", fontsize=11)
 
@@ -1698,7 +1649,7 @@ if "location_2" in movement_cols:
     plt.grid(axis='y', linestyle='--', alpha=0.4)
     plt.xlabel("Destination (First Move)", fontsize=12)
     plt.ylabel("Number of Defters", fontsize=12)
-    plt.title("Figure 4. Top 10 Destinations in First Move",
+    plt.title("Top 10 Destinations in First Move",
               fontsize=16, fontweight='bold')
 
     plt.xticks(rotation=45, ha="right", fontsize=11)
@@ -1718,8 +1669,6 @@ if "location_2" in movement_cols:
     plt.tight_layout()
     plt.show()
 ```
-
-**Figure 6.** Visualization of movements Tatavla
 
 ```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-tatavla-move-*"]
 from IPython.display import Image, display
@@ -1823,7 +1772,7 @@ bars = plt.bar(steps, counts, width=0.6, edgecolor='black', linewidth=1.2)
 plt.grid(axis='y', linestyle='--', alpha=0.4)
 plt.xlabel("Number of Movements", fontsize=12)
 plt.ylabel("Frequency of Defters", fontsize=12)
-plt.title("Figure 7. Distribution of Movements per Individual", fontsize=16, fontweight='bold')
+plt.title("Distribution of Movements per Individual", fontsize=16, fontweight='bold')
 
 for bar, count in zip(bars, counts):
     height = bar.get_height()
@@ -1871,7 +1820,7 @@ bars = plt.bar(top_origin["Place of origin"].astype(str),
 plt.grid(axis='y', linestyle='--', alpha=0.4)
 plt.xlabel("Place of origin", fontsize=12)
 plt.ylabel("Number of defters", fontsize=12)
-plt.title("Figure 9. Top 5 Places of Origin", fontsize=16, fontweight='bold')
+plt.title("Top 5 Places of Origin", fontsize=16, fontweight='bold')
 
 plt.xticks(rotation=45, ha="right", fontsize=11)
 
@@ -1936,7 +1885,7 @@ if "location_2" in movement_cols:
     plt.grid(axis='y', linestyle='--', alpha=0.4)
     plt.xlabel("Destination (First Move)", fontsize=12)
     plt.ylabel("Number of Defters", fontsize=12)
-    plt.title("Figure 8. Top 10 Destinations in First Move",
+    plt.title("Top 10 Destinations in First Move",
               fontsize=16, fontweight='bold')
 
     plt.xticks(rotation=45, ha="right", fontsize=11)
@@ -1964,9 +1913,6 @@ from IPython.display import Image, display
 
 display(Image("./media/fener_analysis4.png"))
 ```
-
-**Figure 6.** Visualization of movements Fener
-
 
 ## Discussion
 
