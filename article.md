@@ -1,6 +1,7 @@
 ---
 jupyter:
   jupytext:
+    formats: ipynb,md
     text_representation:
       extension: .md
       format_name: markdown
@@ -1330,7 +1331,7 @@ Tatavla | LLM | 229 | 81.66% | 18.34%
 
 <!-- #endregion -->
 
-```python  jdh={"module": "object", "object": {"source": ["Results of the Geolocation step"]}} tags=["table-geopy-llm-df-*"]
+```python jdh={"module": "object", "object": {"source": ["Results of the Geolocation step"]}} tags=["table-geopy-llm-df-*"]
 file_with_context = r"./datasets/validation_DH_Paper_context.xlsx"
 file_without_context = r"./datasets/validation_DH_Paper_no_context.xlsx"
 
