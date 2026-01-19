@@ -1670,7 +1670,7 @@ if "location_2" in movement_cols:
     plt.show()
 ```
 
-```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-tatavla-move-*"]
+```python jdh={"module": "object", "object": {"source": ["Visualization of movements Tatavla"]}} tags=["figure-tatavla-move-*"]
 from IPython.display import Image, display
 
 display(Image("./media/tatavla_analysis4.png"))
@@ -1908,7 +1908,7 @@ if "location_2" in movement_cols:
 
 ```
 
-```python jdh={"module": "object", "object": {"source": ["LABEL TO ADD"]}} tags=["figure-fener-bis-*"]
+```python jdh={"module": "object", "object": {"source": ["Visualization of movements Fener"]}} tags=["figure-fener-bis-*"]
 from IPython.display import Image, display
 
 display(Image("./media/fener_analysis4.png"))
