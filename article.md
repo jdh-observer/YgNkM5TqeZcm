@@ -222,7 +222,7 @@ The two sets of defters analyzed in this study were already transliterated and d
 import pandas as pd
 
 # Path to the Excel file containing the historical mobility datasets
-dataset_path = "./datasets/datasets.xlsx"
+dataset_path = "./datasets/Raw_datasets.xlsx"
 
 # Worksheets corresponding to the two communities analyzed in the study
 sheets = ["tatavla", "fener"]
@@ -317,7 +317,7 @@ from openai import OpenAI
 # This section defines the input/output files, API configuration, batching,
 # processing limits, and prompt mode used to process the information in datasets with the OpenAI model.
 
-FILE = "./datasets/datasets.xlsx"
+FILE = "./datasets/Raw_datasets.xlsx"
 SHEET = "tatavla"
 OUTPUT = "./datasets/movements_context_tatavla2.xlsx"
 OUTPUT_NO_NA = "./datasets/movements_no_na_with_context_tatavla.xlsx"
